@@ -41,7 +41,8 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "src/**/*",
+    "src",
+    "src/types/**/*",
     "knexfile.ts",
     "migrations/**/*"
   ],

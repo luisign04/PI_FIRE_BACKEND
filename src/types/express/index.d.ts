@@ -1,9 +1,22 @@
-import { AuthUser } from "../../types/user";
+import * as express from "express";
 
 declare global {
-    namespace Express {
-        export interface Request {
-            user?: AuthUser;
-        }
+  namespace Express {
+    interface Request {
+      user?: any;  // ← Aqui adiciona o req.user
+      file?: Multer.File;
+      files?: Multer.File[];
     }
+  }
+
+  namespace Multer {
+    interface File {
+      filename: string;
+      path: string;
+      mimetype: string;
+      size: number;
+    }
+  }
 }
+
+export {};

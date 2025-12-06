@@ -28,11 +28,13 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.1.0",
+    "multer": "^2.0.2",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/multer": "^2.0.0",
     "@types/node": "^24.7.0",
     "nodemon": "^3.0.2",
     "ts-node": "^10.9.2",
