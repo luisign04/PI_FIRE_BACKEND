@@ -3,6 +3,8 @@
 import { Router } from 'express';
 import { authController } from '../controllers/authController';
 import { protect } from '../middleware/auth'; // ⬅️ Importa o middleware
+import { authorize } from '../middleware/authorize';
+
 
 const router = Router();
 
@@ -15,5 +17,14 @@ router.post('/login', authController.login);
 // 3. Rota de Verificação (Precisa do middleware para verificar o token)
 // O middleware 'protect' garante que o token no header é válido antes de chamar o controller.
 router.get('/verify', protect, authController.verify); 
+
+router.get("/admin/usuarios", protect, authorize("admin"), (req, res) => {
+    res.json({ msg: "Acesso do administrador liberado." });
+});
+
+router.get("/perfil", protect, authorize("admin", "firefighter"), (req, res) => {
+    res.json({ msg: "Acesso permitido aos usuários." });
+});
+
 
 export default router;
