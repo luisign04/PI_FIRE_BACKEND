@@ -8,9 +8,9 @@ const config: { [key: string]: Knex.Config } = {
       filename: path.resolve(__dirname, 'src', 'database', 'dev.sqlite3')
     },
     migrations: {
-      directory: path.resolve(__dirname, 'migrations'),
-      extension: 'ts'
-    },
+    directory: path.resolve(__dirname, 'migrations'),
+    extension: 'js'
+},
     useNullAsDefault: true
   }
 };
